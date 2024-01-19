@@ -10,6 +10,19 @@ import Foundation
 struct Moment: Identifiable, Codable {
     var id: String = UUID().uuidString
     var content: String
-    // Add other properties as needed, like timestamp, image URL, etc.
+    var voiceData: Data?
+    var photoURL: String?
+    var dateCreated: Date = Date()
+    var labels: [String]?
+    
+    var momentType: MomentType {
+        if photoURL != nil {
+            return .photo
+        } else if voiceData != nil {
+            return .voice
+        } else {
+            return .text
+        }
+    }
 
 }
