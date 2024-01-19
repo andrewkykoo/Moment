@@ -7,6 +7,13 @@
 
 import Foundation
 
+
+enum MomentDataType: String, Codable {
+    case text = "Text"
+    case voice = "Voice"
+    case photo = "Photo"
+}
+
 struct Moment: Identifiable, Codable {
     var id: String = UUID().uuidString
     var content: String
@@ -15,7 +22,7 @@ struct Moment: Identifiable, Codable {
     var dateCreated: Date = Date()
     var labels: [String]?
     
-    var momentType: MomentType {
+    var momentType: MomentDataType {
         if photoURL != nil {
             return .photo
         } else if voiceData != nil {
