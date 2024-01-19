@@ -18,11 +18,12 @@
 		B54A9ED02B549DE40026301C /* PhotoMomentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A9ECF2B549DE40026301C /* PhotoMomentView.swift */; };
 		B54A9ED22B54B8760026301C /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A9ED12B54B8760026301C /* CameraView.swift */; };
 		B54A9ED42B54C1430026301C /* VoiceRecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A9ED32B54C1430026301C /* VoiceRecordingView.swift */; };
-		B54A9ED62B5500680026301C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B54A9ED52B5500680026301C /* GoogleService-Info.plist */; };
 		B54A9ED92B5501BF0026301C /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = B54A9ED82B5501BF0026301C /* FirebaseAnalytics */; };
 		B54A9EDE2B5502260026301C /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B54A9EDD2B5502260026301C /* FirebaseFirestore */; };
 		B54A9EE32B5515260026301C /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B54A9EE22B5515260026301C /* FirebaseFirestoreSwift */; };
 		B54A9EE52B5863F20026301C /* AllMomentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A9EE42B5863F20026301C /* AllMomentsView.swift */; };
+		B55A7F392B5A3C8300D18C8F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B55A7F382B5A3C8300D18C8F /* GoogleService-Info.plist */; };
+		B55A7F3B2B5A3FE800D18C8F /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = B55A7F3A2B5A3FE800D18C8F /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,8 +39,9 @@
 		B54A9ECF2B549DE40026301C /* PhotoMomentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoMomentView.swift; sourceTree = "<group>"; };
 		B54A9ED12B54B8760026301C /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		B54A9ED32B54C1430026301C /* VoiceRecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceRecordingView.swift; sourceTree = "<group>"; };
-		B54A9ED52B5500680026301C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B54A9EE42B5863F20026301C /* AllMomentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllMomentsView.swift; sourceTree = "<group>"; };
+		B55A7F382B5A3C8300D18C8F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B55A7F3A2B5A3FE800D18C8F /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 		B54A9EA62B5489530026301C = {
 			isa = PBXGroup;
 			children = (
+				B55A7F3A2B5A3FE800D18C8F /* .gitignore */,
 				B54A9EB12B5489530026301C /* Moment */,
 				B54A9EB02B5489530026301C /* Products */,
 				B54A9EDC2B5502260026301C /* Frameworks */,
@@ -76,7 +79,7 @@
 		B54A9EB12B5489530026301C /* Moment */ = {
 			isa = PBXGroup;
 			children = (
-				B54A9ED52B5500680026301C /* GoogleService-Info.plist */,
+				B55A7F382B5A3C8300D18C8F /* GoogleService-Info.plist */,
 				B54A9EC82B5494A10026301C /* Root */,
 				B54A9EC72B54949E0026301C /* App */,
 				B54A9EC02B548B690026301C /* Model */,
@@ -214,9 +217,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B55A7F3B2B5A3FE800D18C8F /* .gitignore in Resources */,
 				B54A9EBA2B5489550026301C /* Preview Assets.xcassets in Resources */,
 				B54A9EB72B5489550026301C /* Assets.xcassets in Resources */,
-				B54A9ED62B5500680026301C /* GoogleService-Info.plist in Resources */,
+				B55A7F392B5A3C8300D18C8F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

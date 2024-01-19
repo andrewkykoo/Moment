@@ -17,35 +17,48 @@ struct CameraView: View {
     @ObservedObject var viewModel: MomentsViewModel
     @State private var capturedImage: UIImage?
     @State private var showCamera = true
-    @State private var navigateToDetail = false
     @Environment(\.presentationMode) var presentationMode
-
+    @State private var isPresentingMomentDetail = false
+    @State private var isCameraReadyToShow = false
     
     var body: some View {
         ZStack {
-            Color.black
-                .edgesIgnoringSafeArea(.all)
-
-            if showCamera {
+            Color.black.edgesIgnoringSafeArea(.all)
+            
+            if isCameraReadyToShow && showCamera {
                 CameraViewControllerWrapper(
                     capturedImage: $capturedImage,
                     onImageCapture: { image in
                         self.capturedImage = image
                         self.showCamera = false
+                        self.isPresentingMomentDetail = true
                     },
                     onCancel: {
                         self.presentationMode.wrappedValue.dismiss()
                     }
                 )
                 .edgesIgnoringSafeArea(.all)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-            } else if let capturedImage = capturedImage {
+            }
+        }
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+                isCameraReadyToShow = true
+            }
+            showCamera = true
+            isPresentingMomentDetail = false
+            capturedImage = nil
+        }
+        .onDisappear {
+            isCameraReadyToShow = false
+        }
+        .toolbar(.hidden)
+        .navigationDestination(isPresented: $isPresentingMomentDetail) {
+            if let capturedImage = capturedImage {
                 MomentDetailView(viewModel: viewModel, momentType: .photo, capturedImage: capturedImage)
             }
         }
     }
 }
-
 
 
 struct CameraViewControllerWrapper: UIViewControllerRepresentable {
@@ -63,14 +76,16 @@ struct CameraViewControllerWrapper: UIViewControllerRepresentable {
     func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {}
     
     func makeCoordinator() -> Coordinator {
-        Coordinator(self)
+        Coordinator(self, onCancel: onCancel)
     }
     
     class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         var parent: CameraViewControllerWrapper
+        var onCancel: () -> Void
         
-        init(_ parent: CameraViewControllerWrapper) {
+        init(_ parent: CameraViewControllerWrapper, onCancel: @escaping () -> Void) {
             self.parent = parent
+            self.onCancel = onCancel
         }
         
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
@@ -81,8 +96,7 @@ struct CameraViewControllerWrapper: UIViewControllerRepresentable {
         }
         
         func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-            parent.onCancel()
-            picker.dismiss(animated: true, completion: nil)
+            self.onCancel()
         }
     }
 }
