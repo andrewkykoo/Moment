@@ -31,10 +31,21 @@ struct MomentDetailView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 10))
             }
             
-            TextField("Write a brief note", text: $momentNote)
-                .padding()
-                .background(Color.gray.opacity(0.2))
-                .cornerRadius(8)
+            ZStack(alignment: .topLeading) {
+                TextEditor(text: $momentNote)
+                    .frame(minHeight: 100, maxHeight: .infinity)
+                    .padding(4)
+                    .background(Color.gray.opacity(0.2))
+                    .cornerRadius(8)
+                    .fixedSize(horizontal: false, vertical: true)
+
+                if momentNote.isEmpty {
+                    Text("Write a brief note")
+                        .foregroundColor(.gray)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 12)
+                }
+            }
             
             Button(action: {
                 let newMoment = Moment(content: momentNote)

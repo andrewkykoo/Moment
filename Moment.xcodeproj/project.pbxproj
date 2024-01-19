@@ -15,7 +15,6 @@
 		B54A9EC62B5494660026301C /* MomentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A9EC52B5494660026301C /* MomentsViewModel.swift */; };
 		B54A9ECA2B549C960026301C /* TextMomentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A9EC92B549C960026301C /* TextMomentView.swift */; };
 		B54A9ECC2B549CC00026301C /* MomentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A9ECB2B549CC00026301C /* MomentDetailView.swift */; };
-		B54A9ED02B549DE40026301C /* PhotoMomentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A9ECF2B549DE40026301C /* PhotoMomentView.swift */; };
 		B54A9ED22B54B8760026301C /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A9ED12B54B8760026301C /* CameraView.swift */; };
 		B54A9ED42B54C1430026301C /* VoiceRecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A9ED32B54C1430026301C /* VoiceRecordingView.swift */; };
 		B54A9ED92B5501BF0026301C /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = B54A9ED82B5501BF0026301C /* FirebaseAnalytics */; };
@@ -36,7 +35,6 @@
 		B54A9EC52B5494660026301C /* MomentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MomentsViewModel.swift; sourceTree = "<group>"; };
 		B54A9EC92B549C960026301C /* TextMomentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextMomentView.swift; sourceTree = "<group>"; };
 		B54A9ECB2B549CC00026301C /* MomentDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MomentDetailView.swift; sourceTree = "<group>"; };
-		B54A9ECF2B549DE40026301C /* PhotoMomentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoMomentView.swift; sourceTree = "<group>"; };
 		B54A9ED12B54B8760026301C /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		B54A9ED32B54C1430026301C /* VoiceRecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceRecordingView.swift; sourceTree = "<group>"; };
 		B54A9EE42B5863F20026301C /* AllMomentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllMomentsView.swift; sourceTree = "<group>"; };
@@ -112,7 +110,6 @@
 			children = (
 				B54A9EC92B549C960026301C /* TextMomentView.swift */,
 				B54A9ECB2B549CC00026301C /* MomentDetailView.swift */,
-				B54A9ECF2B549DE40026301C /* PhotoMomentView.swift */,
 				B54A9ED12B54B8760026301C /* CameraView.swift */,
 				B54A9ED32B54C1430026301C /* VoiceRecordingView.swift */,
 				B54A9EE42B5863F20026301C /* AllMomentsView.swift */,
@@ -239,7 +236,6 @@
 				B54A9EE52B5863F20026301C /* AllMomentsView.swift in Sources */,
 				B54A9ECC2B549CC00026301C /* MomentDetailView.swift in Sources */,
 				B54A9ECA2B549C960026301C /* TextMomentView.swift in Sources */,
-				B54A9ED02B549DE40026301C /* PhotoMomentView.swift in Sources */,
 				B54A9EC42B54943D0026301C /* Moment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
