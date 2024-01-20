@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B5235BE12B5B4B5F00D2A8A8 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = B5235BE02B5B4B5F00D2A8A8 /* FirebaseStorage */; };
 		B54A9EB32B5489530026301C /* MomentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A9EB22B5489530026301C /* MomentApp.swift */; };
 		B54A9EB52B5489530026301C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A9EB42B5489530026301C /* ContentView.swift */; };
 		B54A9EB72B5489550026301C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B54A9EB62B5489550026301C /* Assets.xcassets */; };
@@ -48,6 +49,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B54A9ED92B5501BF0026301C /* FirebaseAnalytics in Frameworks */,
+				B5235BE12B5B4B5F00D2A8A8 /* FirebaseStorage in Frameworks */,
 				B54A9EDE2B5502260026301C /* FirebaseFirestore in Frameworks */,
 				B54A9EE32B5515260026301C /* FirebaseFirestoreSwift in Frameworks */,
 			);
@@ -168,6 +170,7 @@
 				B54A9ED82B5501BF0026301C /* FirebaseAnalytics */,
 				B54A9EDD2B5502260026301C /* FirebaseFirestore */,
 				B54A9EE22B5515260026301C /* FirebaseFirestoreSwift */,
+				B5235BE02B5B4B5F00D2A8A8 /* FirebaseStorage */,
 			);
 			productName = Moment;
 			productReference = B54A9EAF2B5489530026301C /* Moment.app */;
@@ -461,6 +464,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B5235BE02B5B4B5F00D2A8A8 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B54A9ED72B5501BE0026301C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
 		B54A9ED82B5501BF0026301C /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B54A9ED72B5501BE0026301C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
