@@ -53,7 +53,7 @@ struct VoiceRecordingView: View {
             }
         }
         .navigationDestination(isPresented: $navigateToDetail) {
-            MomentDetailView(viewModel: viewModel, momentType: .voice)
+            SaveMomentView(viewModel: viewModel, momentType: .voice)
         }
         .onDisappear {
             if isRecording && !isNavigatingAway {

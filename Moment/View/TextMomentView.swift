@@ -11,7 +11,7 @@ struct TextMomentView: View {
     @ObservedObject var viewModel: MomentsViewModel
     
     var body: some View {
-        MomentDetailView(viewModel: viewModel, momentType: .text)
+        SaveMomentView(viewModel: viewModel, momentType: .text)
     }
 }
 

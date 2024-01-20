@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MomentDetailView: View {
+struct SaveMomentView: View {
     @ObservedObject var viewModel: MomentsViewModel
     @State private var momentNote = ""
     
@@ -78,5 +78,5 @@ struct MomentDetailView: View {
 }
 
 #Preview {
-    MomentDetailView(viewModel: MomentsViewModel(), momentType: .text, capturedImage: UIImage(systemName: "person"))
+    SaveMomentView(viewModel: MomentsViewModel(), momentType: .text, capturedImage: UIImage(systemName: "person"))
 }

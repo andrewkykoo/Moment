@@ -54,7 +54,7 @@ struct CameraView: View {
         .toolbar(.hidden)
         .navigationDestination(isPresented: $isPresentingMomentDetail) {
             if let capturedImage = capturedImage {
-                MomentDetailView(viewModel: viewModel, momentType: .photo, capturedImage: capturedImage)
+                SaveMomentView(viewModel: viewModel, momentType: .photo, capturedImage: capturedImage)
             }
         }
     }
