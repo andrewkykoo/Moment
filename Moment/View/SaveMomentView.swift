@@ -11,7 +11,7 @@ struct SaveMomentView: View {
     @ObservedObject var viewModel: MomentsViewModel
     @State private var momentNote = ""
     
-    var momentType: MomentType
+    var momentType: MomentDataType
     var capturedImage: UIImage?
     
     var body: some View {
@@ -24,8 +24,8 @@ struct SaveMomentView: View {
                     .shadow(radius: 5)
             }
             
-            if momentType == .voice, !viewModel.recordedText.isEmpty {
-                Text(viewModel.recordedText)
+            if momentType == .voice, !viewModel.voiceRecordingText.isEmpty {
+                Text(viewModel.voiceRecordingText)
                     .padding()
                     .background(Color(UIColor.tertiarySystemBackground))
                     .clipShape(RoundedRectangle(cornerRadius: 10))
@@ -38,7 +38,7 @@ struct SaveMomentView: View {
                     .background(Color.gray.opacity(0.2))
                     .cornerRadius(8)
                     .fixedSize(horizontal: false, vertical: true)
-
+                
                 if momentNote.isEmpty {
                     Text("Write a brief note")
                         .foregroundColor(.gray)
@@ -48,9 +48,10 @@ struct SaveMomentView: View {
             }
             
             Button(action: {
-                let newMoment = Moment(content: momentNote)
-                viewModel.addMoment(moment: newMoment)
-                momentNote = ""
+                Task {
+                    await viewModel.saveMoment(content: momentNote, image: capturedImage, momentType: momentType)
+                    momentNote = ""
+                }
             }) {
                 Text("Save")
                     .foregroundColor(Color(UIColor.systemBackground))

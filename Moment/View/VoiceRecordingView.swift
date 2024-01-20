@@ -11,7 +11,7 @@ import Speech
 
 struct VoiceRecordingView: View {
     @ObservedObject var viewModel: MomentsViewModel
-    @State private var recordedText: String = ""
+    @State private var voiceRecordingText: String = ""
     @State private var isRecording = false
     @State private var navigateToDetail = false
     @State private var isNavigatingAway = false
@@ -30,7 +30,7 @@ struct VoiceRecordingView: View {
                     .font(.headline)
             }
             
-            Text(recordedText)
+            Text(voiceRecordingText)
                 .padding()
             
             Button(isRecording ? "Cancel" : "Start Recording") {
@@ -39,13 +39,13 @@ struct VoiceRecordingView: View {
                     startRecording()
                 } else {
                     stopRecording()
-                    recordedText = ""
+                    voiceRecordingText = ""
                 }
             }
             
-            if !recordedText.isEmpty {
+            if !voiceRecordingText.isEmpty {
                 Button("Use this text") {
-                    viewModel.recordedText = recordedText
+                    viewModel.voiceRecordingText = voiceRecordingText
                     navigateToDetail = true
                     isNavigatingAway = true
                     finalizeRecording()
@@ -121,7 +121,7 @@ struct VoiceRecordingView: View {
                     return
                 }
                 if let result = result {
-                    self.recordedText = result.bestTranscription.formattedString
+                    self.voiceRecordingText = result.bestTranscription.formattedString
                 }
                 if error != nil || result?.isFinal == true {
                     self.audioEngine.stop()
