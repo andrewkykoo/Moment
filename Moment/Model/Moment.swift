@@ -17,7 +17,7 @@ enum MomentDataType: String, Codable {
 struct Moment: Identifiable, Codable {
     var id: String = UUID().uuidString
     var content: String
-    var voiceRecordingData: Data?
+    var voiceRecordingURL: String?
     var voiceRecordingText: String?
     var photoURL: String?
     var dateCreated: Date = Date()
@@ -26,7 +26,7 @@ struct Moment: Identifiable, Codable {
     var momentType: MomentDataType {
         if photoURL != nil {
             return .photo
-        } else if voiceRecordingData != nil {
+        } else if voiceRecordingURL != nil {
             return .voice
         } else {
             return .text

@@ -68,26 +68,39 @@ class MomentsViewModel: ObservableObject {
         }
     }
     
-    func saveMoment(content: String, image: UIImage? = nil, momentType: MomentDataType) async {
-        var photoURL: String? = nil
-        let voiceData: Data? = (momentType == .voice) ? voiceRecordingData : nil
-        let voiceText: String? = (momentType == .voice) ? voiceRecordingText : nil
+    func uploadVoiceRecording(_ voiceData: Data) async -> String? {
+        let storageRef = Storage.storage().reference()
+        let voiceRef = storageRef.child("voiceRecordings/\(UUID().uuidString).m4a")
         
-        switch momentType {
-        case .photo:
-            if let wrappedImage = image {
-                photoURL = await uploadImage(wrappedImage)
-            }
-        case .voice, .text:
-            break
+        do {
+            let _ = try await voiceRef.putDataAsync(voiceData)
+            let downloadURL = try await voiceRef.downloadURL()
+            return downloadURL.absoluteString
+        } catch {
+            print("Error uploading voice recording to Firebase Storage: \(error)")
+            return nil
+        }
+    }
+    
+    func saveMoment(content: String, image: UIImage? = nil, voiceData: Data? = nil, momentType: MomentDataType) async {
+        var photoURL: String? = nil
+        var voiceRecordingURL: String? = nil
+        
+        if let image = image, momentType == .photo {
+            photoURL = await uploadImage(image)
+        }
+
+        if let voiceData = voiceData, momentType == .voice {
+            voiceRecordingURL = await uploadVoiceRecording(voiceData)
         }
         
         let newMoment = Moment(
             content: content,
-            voiceRecordingData: voiceData,
-            voiceRecordingText: voiceText,
+            voiceRecordingURL: voiceRecordingURL,
+            voiceRecordingText: voiceRecordingText,
             photoURL: photoURL,
-            labels: [] //
+            dateCreated: Date(),
+            labels: []
         )
         
         addMoment(moment: newMoment)
