@@ -15,13 +15,14 @@ struct VoiceRecordingView: View {
     @State private var isRecording = false
     @State private var navigateToDetail = false
     @State private var isNavigatingAway = false
+    @State private var voiceRecordingData = Data()
     
     @State private var audioEngine = AVAudioEngine()
     @State private var speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))
-
+    
     @State private var request: SFSpeechAudioBufferRecognitionRequest?
     @State private var recognitionTask: SFSpeechRecognitionTask?
-
+    
     var body: some View {
         VStack {
             if isRecording {
@@ -46,6 +47,7 @@ struct VoiceRecordingView: View {
             if !voiceRecordingText.isEmpty {
                 Button("Use this text") {
                     viewModel.voiceRecordingText = voiceRecordingText
+                    viewModel.voiceRecordingData = voiceRecordingData
                     navigateToDetail = true
                     isNavigatingAway = true
                     finalizeRecording()
@@ -86,7 +88,7 @@ struct VoiceRecordingView: View {
             }
         }
     }
-
+    
     private func startRecordingProcess() {
         let inputNode = audioEngine.inputNode
         let recordingFormat = inputNode.outputFormat(forBus: 0)
@@ -99,21 +101,21 @@ struct VoiceRecordingView: View {
         if inputNode.numberOfInputs > 0 {
             inputNode.removeTap(onBus: 0)
         }
-
+        
         inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { buffer, _ in
             self.request?.append(buffer)
         }
-
+        
         do {
             try audioEngine.start()
         } catch {
             print("Audio Engine Start Error: \(error.localizedDescription)")
         }
-
+        
         let newRequest = SFSpeechAudioBufferRecognitionRequest()
         request = newRequest
         newRequest.shouldReportPartialResults = true
-
+        
         recognitionTask = speechRecognizer.recognitionTask(with: newRequest) { result, error in
             DispatchQueue.main.async {
                 if let error = error {
@@ -133,8 +135,8 @@ struct VoiceRecordingView: View {
             }
         }
     }
-
-
+    
+    
     private func stopRecording() {
         audioEngine.inputNode.removeTap(onBus: 0)
         audioEngine.stop()

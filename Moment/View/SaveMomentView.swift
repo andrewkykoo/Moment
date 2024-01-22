@@ -49,7 +49,17 @@ struct SaveMomentView: View {
             
             Button(action: {
                 Task {
-                    await viewModel.saveMoment(content: momentNote, image: capturedImage, momentType: momentType)
+                    switch momentType {
+                    case .voice:
+                        // For voice moments, pass the voiceRecordingData along with the content
+                        await viewModel.saveMoment(content: momentNote, voiceData: viewModel.voiceRecordingData, momentType: momentType)
+                    case .photo:
+                        // For photo moments
+                        await viewModel.saveMoment(content: momentNote, image: capturedImage, momentType: momentType)
+                    case .text:
+                        // For text moments, only content is needed
+                        await viewModel.saveMoment(content: momentNote, momentType: momentType)
+                    }
                     momentNote = ""
                 }
             }) {
