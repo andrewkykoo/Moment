@@ -18,29 +18,32 @@ struct AllMomentsView: View {
     }
     
     var body: some View {
-        List(viewModel.moments) { moment in
-            VStack(alignment: .leading) {
-                Text(moment.content)
-                    .lineLimit(1)
-                Text("\(moment.dateCreated, formatter: dateFormatter)")
-                    .font(.caption)
-                    .foregroundStyle(.gray)
-                
-                HStack {
-                    Text(moment.momentType.rawValue)
-                        .font(.caption)
-                        .foregroundStyle(.blue)
+        NavigationStack {
+            List(viewModel.moments) { moment in
+                NavigationLink(destination: MomentDetailView(moment: moment)) {
+                    VStack(alignment: .leading) {
+                        Text(moment.content)
+                            .lineLimit(1)
+                        Text("\(moment.dateCreated, formatter: dateFormatter)")
+                            .font(.caption)
+                            .foregroundStyle(.gray)
+                        
+                        HStack {
+                            Text(moment.momentType.rawValue)
+                                .font(.caption)
+                                .foregroundStyle(.blue)
+                        }
+                    }
                 }
             }
-            .onTapGesture {
-                // navigate to SingleMomentView
+            .onAppear {
+                viewModel.fetchMoments()
             }
-        }
-        .onAppear {
-            viewModel.fetchMoments()
+            .navigationTitle("All Moments")
         }
     }
 }
+
 
 #Preview {
     AllMomentsView(viewModel: MomentsViewModel())

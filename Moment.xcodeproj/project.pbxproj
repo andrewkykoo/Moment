@@ -24,6 +24,7 @@
 		B54A9EE52B5863F20026301C /* AllMomentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A9EE42B5863F20026301C /* AllMomentsView.swift */; };
 		B55A7F392B5A3C8300D18C8F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B55A7F382B5A3C8300D18C8F /* GoogleService-Info.plist */; };
 		B55A7F3B2B5A3FE800D18C8F /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = B55A7F3A2B5A3FE800D18C8F /* .gitignore */; };
+		B58C97D22B5E4D2900D14346 /* MomentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58C97D12B5E4D2900D14346 /* MomentDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		B54A9EE42B5863F20026301C /* AllMomentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllMomentsView.swift; sourceTree = "<group>"; };
 		B55A7F382B5A3C8300D18C8F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B55A7F3A2B5A3FE800D18C8F /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		B58C97D12B5E4D2900D14346 /* MomentDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MomentDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				B54A9ED12B54B8760026301C /* CameraView.swift */,
 				B54A9ED32B54C1430026301C /* VoiceRecordingView.swift */,
 				B54A9EE42B5863F20026301C /* AllMomentsView.swift */,
+				B58C97D12B5E4D2900D14346 /* MomentDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				B54A9ECC2B549CC00026301C /* SaveMomentView.swift in Sources */,
 				B54A9ECA2B549C960026301C /* TextMomentView.swift in Sources */,
 				B54A9EC42B54943D0026301C /* Moment.swift in Sources */,
+				B58C97D22B5E4D2900D14346 /* MomentDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
