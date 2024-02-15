@@ -16,7 +16,6 @@ struct ContentView: View {
     
     private var adaptiveButtonBackgroundColor: Color {
         Color(UIColor { traitCollection in
-            // Adjust these UIColors based on your app's design and accent color
             let lightModeColor = UIColor.systemGray4
             let darkModeColor = UIColor.black
             return traitCollection.userInterfaceStyle == .dark ? lightModeColor : darkModeColor
@@ -25,9 +24,8 @@ struct ContentView: View {
     
     private var adaptiveButtonTextColor: Color {
         Color(UIColor { traitCollection in
-            // Choose colors that provide good contrast with the background
-            let lightModeColor = UIColor.white // For dark backgrounds in light mode
-            let darkModeColor = UIColor.white // For light backgrounds in dark mode
+            let lightModeColor = UIColor.white
+            let darkModeColor = UIColor.white
             return traitCollection.userInterfaceStyle == .dark ? darkModeColor : lightModeColor
         })
     }
